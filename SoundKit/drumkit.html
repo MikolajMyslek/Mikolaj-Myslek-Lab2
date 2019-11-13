@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kit</title>
+    <link href="styl.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="Grajce">
+    <audio src="sounds/boom.wav" controls id="boom"></audio>
+    <audio src="sounds/clap.wav" controls id="clap"></audio>
+    <audio src="sounds/hihat.wav" controls id="hihat"></audio>
+    <audio src="sounds/tom.wav" controls id="Tom"></audio>
+</div>
+    <div class="Przycisk1">
+    <button class="Przycisk" id="channel1RecBtn">Start Nagrywania</button>
+    
+    <button class="Przycisk" id="channel1PlayBtn">Odtwarzanie</button>
+</div>
+    <script type="text/javascript">
+        const clapSound = document.querySelector('#clap')
+        const boomSound = document.querySelector('#boom')
+        const hihatSound = document.querySelector('#hihat')
+        const TomSound = document.querySelector('#Tom')
+        const ch1RecBtn = document.querySelector('#channel1RecBtn')
+        const ch1PlayBtn = document.querySelector('#channel1PlayBtn')
+        const channel1 = []
+        let channel1StartTime = 0
+        document.body.addEventListener('keypress', playAudio)
+        document
+            .querySelector('#channel1RecBtn')
+            .addEventListener('click', recChannel1)
+        document
+            .querySelector('#channel1PlayBtn')
+            .addEventListener('click', playChannel1)
+        function recChannel1() {
+            channel1StartTime = Date.now()
+        }
+        function playChannel1() {
+            channel1.forEach(el => { 
+                setTimeout(playSound, el.time, el.code)
+            })
+        }
+        function playSound(code) {
+            switch (code) {
+                case 'KeyA':
+                    clapSound.currentTime = 0
+                    clapSound.play()
+                    break
+                case 'KeyS':
+                    boomSound.currentTime = 0
+                    boomSound.play()
+                    break
+                case 'KeyD':
+                    hihatSound.currentTime = 0
+                    hihatSound.play()
+                    break
+                case 'KeyF':
+                    TomSound.currentTime = 0
+                    TomSound.play()
+                    break
+            }
+        }
+        function playAudio(e) {
+            playSound(e.code)
+            const time = Date.now() - channel1StartTime
+            channel1.push({
+                code: e.code,
+                time: time
+            })
+        }
+    </script>
+</body>
+
+</html>

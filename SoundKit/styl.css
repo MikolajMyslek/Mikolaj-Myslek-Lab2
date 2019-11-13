@@ -1,0 +1,25 @@
+body
+{
+    background-color: cyan;
+}
+.Grajce 
+{
+    position: fixed;
+    top :450px;
+    left:345px;
+}
+.Przycisk1
+{
+    position: fixed;
+    top:350px;
+    left: 750px;
+    
+
+}
+
+.Przycisk
+{
+    width: 200px;
+    height: 80px;
+    font: 200px;
+}
