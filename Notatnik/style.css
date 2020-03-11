@@ -1,0 +1,87 @@
+body{
+    background-color: aqua;
+}
+.note{
+    width: 23%;
+    height: 100px;
+    float: right;
+    margin: 1%;
+    height: 200px;
+    margin-bottom: 3%;
+}
+#topNote{
+    background-color: yellow;
+    width: 100%;
+    height: 20px;
+    padding: 10px 0;
+}
+.topAddNote{
+    width: 10%;
+    float: left;
+    height: 100%;
+    text-align: center;
+}
+.topTitleNote{
+    width: 80%;
+    float: left;
+    height: 100%;
+    text-align: center;
+}
+#topImportantNote{
+    width:10%;
+    float: left;
+    height: 100%;
+    text-align: center;
+}
+#titleinp{
+    background-color: rgba(216,216,29,0.95);
+    width: 100%;
+    text-align: center;
+    border: solid 1px yellow;
+    height: 100%;
+}
+.botNote{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(216,216,29,0.92);
+}
+#textinp{
+    width: 96%;
+    border: none;
+    height: 100%;
+    background-color: rgba(216,216,29,0.92);
+    resize: none;
+    padding:0px;
+    float: left;
+    color:black;
+}
+#colorNote{
+    height: 100%;
+    width: 4%;  
+    float: left;
+}
+
+.color{
+    display: inline-block;
+    width: 100%;
+    height: 12%;
+    margin-top: 5px;
+}
+#red{
+    background: red;
+}
+#grey{
+  background:grey;
+}
+#yellow{
+  background: yellow;
+}
+#blue{
+  background: blue;
+}
+#green{
+  background: green;
+}
+#purple{
+  background-color: purple;
+}

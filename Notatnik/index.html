@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="script.js"></script>
+    <title>Notepad</title>
+</head>
+<body onload="loadNotes()">
+    <div class="note">
+
+        <div id="topNote">
+                
+            <div class="topAddNote">
+                <i class="far fa-plus-square" onclick="add()"></i>
+        
+            </div>
+            
+            <div class="topTitleNote">
+                <input id="titleinp" type="text" style="color: grey;" onclick="cleanTitle()" value="Tytuł notatki"/>
+
+            </div>
+
+            <div id="topImportantNote">
+                <i class="far fa-star" id="false"  onclick="important(this)"></i>
+
+            </div>
+            
+
+        </div>
+
+        <div class="botNote">
+
+            <div id="colorNote">
+                <div class="color" id="yellow" onclick="changeNoteColor(this)"></div>
+                <div class="color" id="green" onclick="changeNoteColor(this)"></div>
+                <div class="color" id="red" onclick="changeNoteColor(this)"></div>
+                <div class="color" id="blue" onclick="changeNoteColor(this)"></div>
+                <div class="color" id="grey" onclick="changeNoteColor(this)"></div>
+                <div class="color" id="purple" onclick="changeNoteColor(this)"></div>
+                
+            </div>
+
+            <textarea id="textinp" type="text"style="color: grey;" ></textarea>
+
+        </div>
+    </div>
+    <button onclick="Clear()">Clear</button>
+    <div id="Notecount" style="display: none;"></div>
+</body>
+</html>
