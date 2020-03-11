@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <link rel="stylesheet"type='text/css' href="style.css">
+    <script src="settings.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+ 
+</head>
+<body onload="color('black'); document.getElementById('BGselectedColor').style.backgroundColor='white'; activateRect(true)">
+        <div class="menu">
+                
+                <div class="emenu">
+                        
+                        <button class="shape-btn" id='rectangle' style="background-color: darkblue; width:20px; height: 20px; border-color: darkblue;"></button>
+                        <button class="shape-btn" id="fillcircle" style="background-color: darkblue; width:20px; height: 20px; border-color: darkblue;border-radius: 45px;"></button>
+                        <button class="shape-btn" id='circle' style="background-color: blue;width: 23px;height: 23px; border: solid 4px darkblue; border-radius: 45px; "></button>
+                </div>
+
+                <div class="emenu">
+                        
+                        <input id="canvasSize" type="number" style="margin-left: 20px;width: 40px;background-color: darkblue;border-color: black; color:white;" value="20" onchange="brushSize()">  
+                </div>
+
+                <div class="emenu">
+                        
+                        <div onclick="unhide(1)" id="selectedColor" style="background-color: black; color: white; border: 1px solid black; width=100px; height: 17px;"><b>Aktualny</b></div>
+                        <div id="hide1">
+                                </br>
+                                <button class="color" id="black" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='white';" style="background-color: black;width: 20px;height: 20px; border-color: black; border-radius: 45px;"></button>  
+                                <button class="color" id="grey" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: grey;width: 20px;height: 20px; border-color: grey; border-radius: 45px;"></button>
+                                <button class="color" id="brown" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: brown;width: 20px;height: 20px; border-color: brown; border-radius: 45px;"></button>
+                                <button class="color" id="red" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: red;width: 20px;height: 20px; border-color: red; border-radius: 45px;"></button>
+                                <button class="color" id="orange" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: orange;width: 20px;height: 20px; border-color: orange; border-radius: 45px;"></button>
+                                <button class="color" id="yellow" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: yellow;width: 20px;height: 20px; border-color: yellow; border-radius: 45px;"></button>  
+                                <button class="color" id="green" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: green;width: 20px;height: 20px; border-color: green; border-radius: 45px;"></button>
+                                <button class="color" id="royalblue" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: royalblue;width: 20px;height: 20px; border-color: royalblue; border-radius: 45px;"></button>  
+                                <button class="color" id="blue" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: blue;width: 20px;height: 20px; border-color: blue; border-radius: 45px;"></button>
+                                <button class="color" id="violet" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: violet;width: 20px;height: 20px; border-color: violet; border-radius: 45px;"></button> 
+                                <button class="color" id="darkorchid" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: darkorchid;width: 20px;height: 20px; border-color: darkorchid; border-radius: 45px;"></button>
+                                <button class="color" id="darkgrey" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: darkgrey;width: 20px;height: 20px; border-color: darkgrey; border-radius: 45px;"></button> 
+                                <button class="color" id="deepskyblue" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: deepskyblue;width: 20px;height: 20px; border-color: deepskyblue; border-radius: 45px;"></button>
+                                <button class="color" id="lightgreen" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: lightgreen;width: 20px;height: 20px; border-color: lightgreen; border-radius: 45px;"></button> 
+                                <button class="color" id="darkmagenta" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: darkmagenta;width: 20px;height: 20px; border-color: darkmagenta; border-radius: 45px;"></button>
+                                <button class="color" id="white" onclick="color(this); document.getElementById('selectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('selectedColor').style.color='black';" style="background-color: white;width: 20px;height: 20px; border-color: white; border-radius: 45px;"></button> 
+                        </div>
+                </div>
+
+                <div class="emenu">
+                        
+                        <div onclick="unhide(2)" id="BGselectedColor" style="border: 1px solid black; width=100px; height: 17px;"><b>Aktualny</b></div>
+                        <div id="hide2">
+                                </br>
+                                <button id="black" style="background-color: black;width: 20px;height: 20px; border-color: black; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor; document.getElementById('BGselectedColor').style.color='white';"></button>                  
+                                <button id="grey" style="background-color: grey;width: 20px;height: 20px; border-color: grey; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button>
+                                <button id="red" style="background-color: red;width: 20px;height: 20px; border-color: red; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button>
+                                <button id="brown" style="background-color: brown;width: 20px;height: 20px; border-color: brown; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button>
+                                <button id="orange" style="background-color: orange;width: 20px;height: 20px; border-color: orange; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button>
+                                <button id="yellow" style="background-color: yellow;width: 20px;height: 20px; border-color: yellow; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button>                  
+                                <button id="green" style="background-color: green;width: 20px;height: 20px; border-color: green; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button>
+                                <button id="royalblue" style="background-color: royalblue;width: 20px;height: 20px; border-color: royalblue; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button>  
+                                <button id="blue" style="background-color: blue;width: 20px;height: 20px; border-color: blue; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button>
+                                <button id="violet" style="background-color: violet;width: 20px;height: 20px; border-color: violet; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button> 
+                                <button id="darkorchid" style="background-color: darkorchid;width: 20px;height: 20px; border-color: darkorchid; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button>
+                                <button id="darkgrey" style="background-color: darkgrey;width: 20px;height: 20px; border-color: darkgrey; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button> 
+                                <button id="deepskyblue" style="background-color: deepskyblue;width: 20px;height: 20px; border-color: deepskyblue; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button>
+                                <button id="lightgreen" style="background-color: lightgreen;width: 20px;height: 20px; border-color: lightgreen; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button> 
+                                <button id="darkmagenta" style="background-color: darkmagenta;width: 20px;height: 20px; border-color: darkmagenta; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button>
+                                <button id="white" style="background-color: white;width: 20px;height: 20px; border-color: white; border-radius: 45px;" onclick="BGcolor(this); document.getElementById('BGselectedColor').style.backgroundColor=this.style.backgroundColor"></button> 
+                        </div>
+                </div>
+
+               
+                
+                <div class="emenu">
+                       
+                        <button id="fileBtn" class="opt-btn" onclick="drawCanvasImage()">Dodaj zdjecie</button>
+                </div>
+                
+                <div class="emenu">
+                        
+                        <button class="opt-btn" id="darken">ciemniej</button>
+                        <button class="opt-btn" id="brighten">jasniej</button>
+                        <button class="opt-btn" id="contrast">kontrast</button>
+                        <button class="opt-btn" id="blur">rozmycie</button>
+                </div>
+                
+                <div class="emenu">
+                        
+                        <button onclick="deleteAll()" id="clearBtn" class="opt-btn">Usuń</button>
+                </div>
+        </div>
+        <canvas id="canvas"></canvas>
+    
+   
+       
+        <script src="canv.js" type="text/javascript"></script>
+    
+   
+</body>
+</html>
